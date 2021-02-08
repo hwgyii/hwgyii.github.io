@@ -1,67 +1,141 @@
-* {
-    border: 0;
-    margin: 0;
+/* MOBILE STYLESHEET */
+@media only screen and (max-width: 768px) {
+    * {
+        border: 0;
+        margin: 0;
+    }
+
+    body {
+        background-color: #1d3c1b;
+        font-family: chalktastic;
+    }
+
+    #header {
+        height: 8vh;
+        width: 100vw;
+        text-align: center;
+        font-size: 3vh;
+        color: white;
+    }
+
+    #buttons {
+        margin-top: 2vh;
+        text-align: center;
+    }
+
+    #buttons button {
+        margin-right: 5vw;
+        margin-left: 5vw;
+        font-family: chalktastic;
+        border-radius: 6px;
+        font-size: 2vh;
+        cursor: pointer;
+        background-color: transparent;
+        color: white;
+    }
+
+    #table {
+        margin: auto;
+        margin-top: 5vh;
+        width: 50vw;
+        height: 70vh;
+        padding: 1%;
+    }
+
+    .tile {
+        float: left;
+        border: 0;
+        width: 25%;
+        height: 25%;
+        margin-left: 5%;
+        margin-bottom: 5%;
+        border-radius: 6px;
+        border: 3px solid white;
+        text-align: center;
+    }
+
+    @font-face {
+        font-family: "chalktastic";
+        /* change to  src: url("../hwgyii.github.io/fonts/chalktastic.ttf"); when pushing in github */
+        src: url("../hwgyii.github.io/fonts/chalktastic.ttf");
+        /* src: url("../fonts/chalktastic.ttf"); */
+    }
+
+    .tile span {
+        border: 0%;
+        padding: 0%;
+        font-family: chalktastic;
+        color: white;
+    }
 }
 
-body {
-    background-color: #1d3c1b;
-    font-family: chalktastic;
-}
+/* DESKTOP/TABLET STYLESHEET */
+@media only screen and (min-width: 768px) {
+    * {
+        border: 0;
+        margin: 0;
+    }
 
-#header {
-    height: 8vh;
-    width: 100vw;
-    text-align: center;
-    font-size: 7vh;
-    color: white;
-}
+    body {
+        background-color: #1d3c1b;
+        font-family: chalktastic;
+    }
 
-#table {
-    margin: auto;
-    margin-top: 5vh;
-    width: 50vw;
-    height: 70vh;
-    padding: 10px;
-}
+    #header {
+        height: 8vh;
+        width: 100vw;
+        text-align: center;
+        font-size: 7vh;
+        color: white;
+    }
 
-.tile {
-    float: left;
-    border: 0;
-    width: 31%;
-    height: 31%;
-    margin-left: 1%;
-    margin-bottom: 1%;
-    border-radius: 6px;
-    border: 3px solid white;
-    text-align: center;
-}
+    #buttons {
+        margin-top: 2vh;
+        text-align: center;
+    }
 
-@font-face {
-    font-family: "chalktastic";
-    /* change to  src: url("../hwgyii.github.io/fonts/chalktastic.ttf"); when pushing in github */
-    src: url("../hwgyii.github.io/fonts/chalktastic.ttf");
-    /* src: url("../fonts/chalktastic.ttf"); */
-}
+    #buttons button {
+        margin-right: 5vw;
+        margin-left: 5vw;
+        font-family: chalktastic;
+        border-radius: 6px;
+        font-size: 30px;
+        cursor: pointer;
+        background-color: transparent;
+        color: white;
+    }
 
-.tile span {
-    border: 0%;
-    padding: 0%;
-    font-family: chalktastic;
-    color: white;
-}
+    #table {
+        margin: auto;
+        margin-top: 5vh;
+        width: 50vw;
+        height: 70vh;
+        padding: 10px;
+    }
 
-#buttons {
-    margin-top: 2vh;
-    text-align: center;
-}
+    .tile {
+        float: left;
+        border: 0;
+        width: 31%;
+        height: 31%;
+        margin-left: 1%;
+        margin-bottom: 1%;
+        border-radius: 6px;
+        border: 3px solid white;
+        text-align: center;
+    }
 
-#buttons button {
-    margin-right: 5vw;
-    margin-left: 5vw;
-    font-family: chalktastic;
-    border-radius: 6px;
-    font-size: 30px;
-    cursor: pointer;
-    background-color: transparent;
-    color: white;
+    @font-face {
+        font-family: "chalktastic";
+        /* change to  src: url("../hwgyii.github.io/fonts/chalktastic.ttf"); when pushing in github */
+        src: url("../hwgyii.github.io/fonts/chalktastic.ttf");
+        /* src: url("../fonts/chalktastic.ttf"); */
+    }
+
+    .tile span {
+        border: 0%;
+        padding: 0%;
+        font-family: chalktastic;
+        color: white;
+    }
 }

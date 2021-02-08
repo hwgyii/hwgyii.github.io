@@ -27,7 +27,7 @@ function changeImage(row, col) {
     }
     
     //ADDING THE IMAGE
-    span.style.fontSize = (document.getElementById(id).offsetHeight * 0.75).toString().concat("px");
+    span.style.fontSize = (document.getElementById(id).offsetWidth * 0.50).toString().concat("px");
     document.getElementById(id).append(span);
 }
 
