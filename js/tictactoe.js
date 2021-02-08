@@ -36,6 +36,7 @@ function resetBoard() {
     for (var i = 0; i < 3; i ++) {
         for (var j = 0; j < 3; j ++) {
             const id = i.toString().concat(j.toString()); //ID OF THE DIV WHERE WE WILL REMOVE THE IMAGE
+            document.getElementById(id).style.borderColor = 'white';
             try {
                 document.getElementById(id).removeChild(document.getElementById("span-move")); //REMOVING THE MOVE
             }
@@ -48,18 +49,57 @@ function resetBoard() {
 function checkWin(n) {
     //horizontal
     for (var col = 0; col < 3; col ++) {
-        if (n[0][col] === n[1][col] && n[0][col] === n[2][col] && n[0][col] != -1) return true;
+        if (n[0][col] === n[1][col] && n[0][col] === n[2][col] && n[0][col] != -1) {
+            document.getElementById("0".concat(col.toString())).style.borderColor = 'red';
+            document.getElementById("0".concat(col.toString())).getElementsByTagName("span")[0].style.color = 'red';
+
+            document.getElementById("1".concat(col.toString())).style.borderColor = 'red';
+            document.getElementById("1".concat(col.toString())).getElementsByTagName("span")[0].style.color = 'red';
+
+            document.getElementById("2".concat(col.toString())).style.borderColor = 'red';
+            document.getElementById("2".concat(col.toString())).getElementsByTagName("span")[0].style.color = 'red';
+            return true;
+        }
     }
 
     //vertical
     for (var row = 0; row < 3; row ++) {
-        if (n[row][0] === n[row][1] && n[row][0] === n[row][2] && n[row][0] != -1) return true;
+        if (n[row][0] === n[row][1] && n[row][0] === n[row][2] && n[row][0] != -1) {
+            document.getElementById(row.toString().concat("0")).style.borderColor = 'red';
+            document.getElementById(row.toString().concat("0")).getElementsByTagName("span")[0].style.color = 'red';
+
+            document.getElementById(row.toString().concat("1")).style.borderColor = 'red';
+            document.getElementById(row.toString().concat("1")).getElementsByTagName("span")[0].style.color = 'red';
+
+            document.getElementById(row.toString().concat("2")).style.borderColor = 'red';
+            document.getElementById(row.toString().concat("2")).getElementsByTagName("span")[0].style.color = 'red';
+            return true;
+        }
     }
-
     //diagonal
-    if (n[0][0] === n[1][1] && n[0][0] === n[2][2] && n[0][0] != -1) return true;
-    else if (n[0][2] === n[1][1] && n[0][2] === n[2][0] && n[0][2] != -1) return true;
+    if (n[0][0] === n[1][1] && n[0][0] === n[2][2] && n[0][0] != -1) {
+        document.getElementById("00").style.borderColor = 'red';
+        document.getElementById("00").getElementsByTagName("span")[0].style.color = 'red';
 
+        document.getElementById("11").style.borderColor = 'red';
+        document.getElementById("11").getElementsByTagName("span")[0].style.color = 'red';
+
+        document.getElementById("22").style.borderColor = 'red';
+        document.getElementById("22").getElementsByTagName("span")[0].style.color = 'red';
+
+        return true;
+    }
+    else if (n[0][2] === n[1][1] && n[0][2] === n[2][0] && n[0][2] != -1) {
+        document.getElementById("02").style.borderColor = 'red';
+        document.getElementById("02").getElementsByTagName("span")[0].style.color = 'red';
+
+        document.getElementById("11").style.borderColor = 'red';
+        document.getElementById("11").getElementsByTagName("span")[0].style.color = 'red';
+
+        document.getElementById("20").style.borderColor = 'red';
+        document.getElementById("20").getElementsByTagName("span")[0].style.color = 'red';
+        return true;
+    }
     return false;
 }
 
@@ -104,8 +144,24 @@ function availableMoves() {
 }
 
 //AI ALGORITHMS/FUNCTIONS
+function checkWinner(n) {
+    //horizontal
+    for (var col = 0; col < 3; col ++) {
+        if (n[0][col] === n[1][col] && n[0][col] === n[2][col] && n[0][col] != -1) return true;
+    }
+
+    //vertical
+    for (var row = 0; row < 3; row ++) {
+        if (n[row][0] === n[row][1] && n[row][0] === n[row][2] && n[row][0] != -1) return true;
+    }
+    //diagonal
+    if (n[0][0] === n[1][1] && n[0][0] === n[2][2] && n[0][0] != -1) return true;
+    else if (n[0][2] === n[1][1] && n[0][2] === n[2][0] && n[0][2] != -1) return true;
+
+    return false;
+}
 function utility(idealBoard) {
-    if (checkWin(idealBoard)) {
+    if (checkWinner(idealBoard)) {
         if (getWin(idealBoard)) return -1;
         return 1;
     }
@@ -155,7 +211,7 @@ function minValue(idealBoard, alpha, beta) {
 }
 
 function value(idealBoard, aiTurn, alpha, beta) {
-    if (checkWin(idealBoard) || checkTie(idealBoard)) return utility(idealBoard);
+    if (checkWinner(idealBoard) || checkTie(idealBoard)) return utility(idealBoard);
     if (aiTurn) return maxValue(idealBoard, alpha, beta);
     else return minValue(idealBoard, alpha, beta);
 }

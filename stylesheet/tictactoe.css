@@ -4,7 +4,7 @@
 }
 
 body {
-    background-color: #346b31;
+    background-color: #1d3c1b;
     font-family: chalktastic;
 }
 
@@ -13,6 +13,7 @@ body {
     width: 100vw;
     text-align: center;
     font-size: 7vh;
+    color: white;
 }
 
 #table {
@@ -26,23 +27,27 @@ body {
 .tile {
     float: left;
     border: 0;
-    width: 30%;
-    height: 30%;
-    margin-left: 2%;
-    margin-bottom: 2%;
+    width: 31%;
+    height: 31%;
+    margin-left: 1%;
+    margin-bottom: 1%;
     border-radius: 6px;
-    border: 3px solid black;
+    border: 3px solid white;
     text-align: center;
 }
+
 @font-face {
     font-family: "chalktastic";
+    /* change to  src: url("../hwgyii.github.io/fonts/chalktastic.ttf"); when pushing in github */
     src: url("../hwgyii.github.io/fonts/chalktastic.ttf");
+    /* src: url("../fonts/chalktastic.ttf"); */
 }
 
 .tile span {
     border: 0%;
     padding: 0%;
     font-family: chalktastic;
+    color: white;
 }
 
 #buttons {
@@ -58,4 +63,5 @@ body {
     font-size: 30px;
     cursor: pointer;
     background-color: transparent;
+    color: white;
 }
