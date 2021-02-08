@@ -4,7 +4,8 @@
 }
 
 body {
-    background-color: #d8c292;
+    background-color: #346b31;
+    font-family: chalktastic;
 }
 
 #header {
@@ -19,9 +20,7 @@ body {
     margin-top: 5vh;
     width: 50vw;
     height: 70vh;
-    border: 3px solid green;
     padding: 10px;
-    background-color: #5b5b5b;
 }
 
 .tile {
@@ -29,28 +28,34 @@ body {
     border: 0;
     width: 30%;
     height: 30%;
-    margin-left: 3%;
-    margin-bottom: 3%;
-    background-color: blue;
+    margin-left: 2%;
+    margin-bottom: 2%;
+    border-radius: 6px;
+    border: 3px solid black;
+    text-align: center;
+}
+@font-face {
+    font-family: "chalktastic";
+    src: url("../fonts/chalktastic.ttf");
 }
 
-.tile img {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    object-fit: contain;
-    max-width: 100%;
-    max-height: 100%;
+.tile span {
+    border: 0%;
+    padding: 0%;
+    font-family: chalktastic;
 }
 
 #buttons {
+    margin-top: 2vh;
     text-align: center;
 }
 
 #buttons button {
-    margin-left: 10px;
+    margin-right: 5vw;
+    margin-left: 5vw;
+    font-family: chalktastic;
     border-radius: 6px;
     font-size: 30px;
     cursor: pointer;
-    background-color: #c19065;
+    background-color: transparent;
 }

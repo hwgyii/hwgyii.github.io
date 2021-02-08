@@ -14,20 +14,21 @@ function changeImage(row, col) {
     //THE ID OF THE DIV WHERE THE IMAGE WILL BE ADDED
     const id = row.toString().concat(col.toString());
 
-    //THE IMAGE
-    const img = document.createElement("img");
-    img.id = "img-tile"; //ID OF THE IMAGE FOR REMOVING PURPOSES WHEN RESETTING GAME
+    //CREATING SPAN TO ADD IN THE BOARD
+    const span = document.createElement("span");
+    span.id = "span-move"
 
-    //WHAT IMAGE TO ADD(BASED ON THE PLAYER WHO MADE THE MOVE)
+    //WHAT MOVE TO ADD(BASED ON THE PLAYER WHO MADE THE MOVE)
     if (board[row][col] == 0) {
-        img.src = "images/o.png";
+        span.innerHTML = "O";
     }
     else {
-        img.src = "images/x.png";
+        span.innerHTML = "X";
     }
     
     //ADDING THE IMAGE
-    document.getElementById(id).append(img);
+    span.style.fontSize = (document.getElementById(id).offsetHeight * 0.75).toString().concat("px");
+    document.getElementById(id).append(span);
 }
 
 //RESETS/REMOVES IMAGES IN THE BOARD
@@ -36,7 +37,7 @@ function resetBoard() {
         for (var j = 0; j < 3; j ++) {
             const id = i.toString().concat(j.toString()); //ID OF THE DIV WHERE WE WILL REMOVE THE IMAGE
             try {
-                document.getElementById(id).removeChild(document.getElementById("img-tile")); //REMOVING THE IMAGE
+                document.getElementById(id).removeChild(document.getElementById("span-move")); //REMOVING THE MOVE
             }
             catch(err) {}
         }
@@ -220,6 +221,9 @@ document.addEventListener('click',function(e){
         resetBoard(); //CALLS THE FUNCTIONS THAT REMOVES THE IMAGES IN THE BOARD
         playing = true; //PLAYING == TRUE BECAUSE IT IS A NEW GAME
         player1turn = true;
+        
+        if (isSinglePlayer) document.getElementById("title").innerHTML = "Single Player Tic-Tac-Toe";
+        else document.getElementById("title").innerHTML = "Multi Player Tic-Tac-Toe";
     }
 
     //SINGLE PLAYER MODE TIC TAC TOE
@@ -318,12 +322,12 @@ document.addEventListener('click',function(e){
                     dialog = "Player 2 Won!";
                 }
 
-                alert(dialog); //ALERTING THE RESULT OF THE GAME
+                document.getElementById("title").innerHTML = dialog; //ALERTING THE RESULT OF THE GAME
                 playing = false; //CHANGING PLAYING TO FALSE
             }
 
             else if (checkTie(board)) {
-                alert("It's a TIE!");
+                document.getElementById("title").innerHTML = "It's a TIE!"; //ALERTING THE RESULT OF THE GAME
                 playing = false;
             }
 
@@ -362,12 +366,12 @@ document.addEventListener('click',function(e){
                         dialog = "Player 2 Won!";
                     }
 
-                    alert(dialog); //ALERTING THE RESULT OF THE GAME
+                    document.getElementById("title").innerHTML = dialog; //ALERTING THE RESULT OF THE GAME
                     playing = false; //CHANGING PLAYING TO FALSE
                 }
 
                 else if (checkTie(board)) {
-                    alert("It's a TIE!");
+                    document.getElementById("title").innerHTML = "It's a TIE!"; //ALERTING THE RESULT OF THE GAME
                     playing = false;
                 }
             }
