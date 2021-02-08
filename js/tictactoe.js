@@ -20,10 +20,10 @@ function changeImage(row, col) {
 
     //WHAT IMAGE TO ADD(BASED ON THE PLAYER WHO MADE THE MOVE)
     if (board[row][col] == 0) {
-        img.src = "../images/o.png";
+        img.src = "images/o.png";
     }
     else {
-        img.src = "../images/x.png";
+        img.src = "images/x.png";
     }
     
     //ADDING THE IMAGE
