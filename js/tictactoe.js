@@ -9,7 +9,7 @@ var playing;
 
 //GAME FUNCTIONS
 
-//ADDS IMAGE TO BOARD
+//ADDS MOVE TO BOARD
 function changeImage(row, col) {
     //THE ID OF THE DIV WHERE THE IMAGE WILL BE ADDED
     const id = row.toString().concat(col.toString());
@@ -26,12 +26,14 @@ function changeImage(row, col) {
         span.innerHTML = "X";
     }
     
-    //ADDING THE IMAGE
-    span.style.fontSize = (document.getElementById(id).offsetWidth * 0.50).toString().concat("px");
+    //ADDING THE MOVE
+    //CHANGING FONT SIZE WHEN IN MOBILE VS. WHEN IN DESKTOP (IDK IF THIS IS GOODS IN EVERY DEVICE)
+    if (document.getElementById(id).offsetHeight <= 165) span.style.fontSize = (document.getElementById(id).offsetHeight * 0.5).toString().concat("px");
+    else span.style.fontSize = (document.getElementById(id).offsetHeight * 0.75).toString().concat("px");
     document.getElementById(id).append(span);
 }
 
-//RESETS/REMOVES IMAGES IN THE BOARD
+//RESETS/REMOVES MOVES IN THE BOARD
 function resetBoard() {
     for (var i = 0; i < 3; i ++) {
         for (var j = 0; j < 3; j ++) {
